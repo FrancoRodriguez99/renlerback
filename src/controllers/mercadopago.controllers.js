@@ -47,6 +47,7 @@ const generateBill = async (req, res) => {
     var preference = {
       items: buyMe,
       auto_return: "approved",
+      notification_url: "https://ledw.onrender.com/mercadopago/payed",
       external_reference: newBill._id.toString(),
       back_urls: {
         success: "http://192.168.1.124:3000",
@@ -126,8 +127,10 @@ const generateBillEfectivo = async (req, res) => {
 
 const payed = async (req, res) => {
   try {
+    console.log("asd");
     console.log(req.body);
     console.log(req.params);
+    res.status(200).json({});
   } catch (e) {
     console.log(e);
     res.status(500).json({ message: "Error" });
