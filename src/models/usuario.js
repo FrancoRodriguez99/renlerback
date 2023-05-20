@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
+const usuarioSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   name: { type: String, required: true },
   email: {
@@ -25,4 +25,4 @@ const userSchema = mongoose.Schema({
   admin: { type: Boolean, default: false },
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Usuario", usuarioSchema);

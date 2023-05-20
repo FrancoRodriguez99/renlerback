@@ -1,14 +1,10 @@
 const express = require("express");
 const users = require("./users");
-const products = require("./products");
-const mensajeria = require("./mensajeria");
-const mercadopago = require("./mercadopago");
+const build = require("./build");
 
 const router = express.Router();
 
 router.use("/users", users);
-router.use("/products", products);
-router.use("/mensajeria", mensajeria);
-router.use("/mercadopago", mercadopago);
+router.use("/build", build);
 
 module.exports = router;
