@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const edificioSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   nombre: { type: String, required: true },
-  icono: { type: String, required: false, default: "null" },
+  icono: [{ type: String, required: false }],
   descripcion: { type: String, required: true },
   bonificacion: { type: String, required: true },
   bonificacionNumero: { type: String, required: true },

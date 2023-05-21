@@ -23,11 +23,13 @@ const generateRecurso = async (req, res) => {
 
 const generateHabitacion = async (req, res) => {
   try {
-    const { datos, ganancias, recetas } = req.body;
+    const { datos, ganancias, recetas, mejorable, paraMejorarRequiero } = req.body;
 
     const habitacion = new Habitacion({
       _id: new mongoose.Types.ObjectId(),
       ...datos,
+      upgradeable: mejorable,
+      recetaMejora: paraMejorarRequiero,
       bonificacion: datos.bonificadores,
       receta: recetas.map((x) => {
         return {
@@ -110,7 +112,7 @@ const deleteEdificio = async (req, res) => {
 const getAll = async (req, res) => {
   try {
     const recursos = await Recurso.find({});
-    const habitaciones = await Habitacion.find({}).populate("receta.id").populate("ganancias.id");
+    const habitaciones = await Habitacion.find({}).populate("receta.id").populate("ganancias.id").populate("recetaMejora");
     const edificios = await Edificio.find({}).populate("receta.id").populate("ganancias.id");
     res.status(200).json({ recursos, habitaciones, edificios });
   } catch (e) {

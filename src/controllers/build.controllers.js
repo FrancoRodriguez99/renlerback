@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const Cuadrado = require("../models/cuadrado");
 const Claimed = require("../models/claimed");
 const Recurso = require("../models/recurso");
+const habitacion = require("../models/habitacion");
+const edificio = require("../models/edificio");
 
 const generateMap = async (req, res) => {
   try {
@@ -42,7 +44,7 @@ const getMap = async (req, res) => {
 
 const deleteSomething = async (req, res) => {
   try {
-    const a = await Recurso.deleteMany({});
+    // const a = await edificio.deleteMany({});
     res.status(201).json(a);
   } catch (e) {
     console.log(e);

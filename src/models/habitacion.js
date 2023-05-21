@@ -20,6 +20,12 @@ const habitacionSchema = mongoose.Schema({
       },
     },
   ],
+  recetaMejora: {
+    type: mongoose.Types.ObjectId,
+    ref: "Habitacion",
+    required: false,
+  },
+  upgradeable: { type: Boolean },
   time: { type: String },
   ganancias: [
     {
